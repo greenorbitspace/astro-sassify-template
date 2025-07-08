@@ -125,6 +125,19 @@
   .card {
     @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-secondary-200 dark:border-secondary-800;
   }
+
+  /* Define animation utilities here */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-in-out forwards;
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.5s ease-in-out forwards;
+  }
 }
 
 /* Typography styles */
@@ -154,19 +167,6 @@
   }
 }
 
-/* Animations */
-.fade-in {
-  @apply animate-fade-in;
-}
-
-.slide-up {
-  @apply animate-slide-up;
-}
-
-.slide-down {
-  @apply animate-slide-down;
-}
-
 /* Accessibility */
 .sr-only {
   @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
@@ -174,5 +174,5 @@
 
 /* Focus styles for keyboard navigation */
 :focus-visible {
-  @apply outline-hidden ring-2 ring-primary-500 dark:ring-primary-400;
+  @apply outline-none ring-2 ring-primary-500 dark:ring-primary-400;
 }
