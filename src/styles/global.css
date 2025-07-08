@@ -44,7 +44,7 @@
   --color-accent-900: #07784f;
   --color-accent-950: #044c30;
 
-  /* Leave warning unchanged unless you have new colors */
+  /* Warning */
   --color-warning-50: #fefce8;
   --color-warning-100: #fef9c3;
   --color-warning-200: #fef08a;
@@ -60,7 +60,7 @@
   --font-sans: Inter, system-ui, sans-serif;
   --font-display: Lexend, system-ui, sans-serif;
 
-  /* Animations stay the same */
+  /* Animations */
   --animate-fade-in: fadeIn 0.5s ease-in-out;
   --animate-slide-up: slideUp 0.5s ease-in-out;
   --animate-slide-down: slideDown 0.5s ease-in-out;
@@ -81,14 +81,7 @@
   }
 }
 
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
+/* Compatibility for default border color */
 @layer base {
   *,
   ::after,
@@ -99,59 +92,63 @@
   }
 }
 
-@utility btn {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-hidden;
+/* Custom utility classes */
+@layer utilities {
+  .btn {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-hidden;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-400 hover:bg-accent-500 text-black shadow-md hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply btn bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg;
+  }
+
+  .btn-accent {
+    @apply btn bg-accent-500 hover:bg-accent-600 text-black shadow-md hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-secondary-300 dark:border-secondary-700 hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-900 dark:text-secondary-100;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  .section {
+    @apply py-16 md:py-24;
+  }
+
+  .card {
+    @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-secondary-200 dark:border-secondary-800;
+  }
 }
 
-@utility btn-primary {
-  @apply btn bg-accent-400 hover:bg-accent-500 text-black shadow-md hover:shadow-lg;
-}
-
-@utility btn-secondary {
-  @apply btn bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg;
-}
-
-@utility btn-accent {
-  @apply btn bg-accent-500 hover:bg-accent-600 text-black shadow-md hover:shadow-lg;
-}
-
-@utility btn-outline {
-  @apply btn border-2 border-secondary-300 dark:border-secondary-700 hover:bg-secondary-100 dark:hover:bg-secondary-800 text-secondary-900 dark:text-secondary-100;
-}
-
-@utility container-custom {
-  @apply container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-}
-
-@utility section {
-  @apply py-16 md:py-24;
-}
-
-@utility card {
-  @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-secondary-200 dark:border-secondary-800;
-}
-
+/* Typography styles */
 @layer base {
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
-  
+
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold;
   }
-  
+
   h2 {
     @apply text-3xl md:text-4xl font-bold;
   }
-  
+
   h3 {
     @apply text-2xl md:text-3xl font-semibold;
   }
-  
+
   h4 {
     @apply text-xl md:text-2xl font-semibold;
   }
-  
+
   p {
     @apply text-base md:text-lg leading-relaxed;
   }
