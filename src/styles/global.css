@@ -95,7 +95,7 @@
 /* Custom utility classes */
 @layer utilities {
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-hidden;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none;
   }
 
   .btn-primary {
